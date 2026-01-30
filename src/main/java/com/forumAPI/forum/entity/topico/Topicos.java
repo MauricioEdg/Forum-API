@@ -1,4 +1,4 @@
-package com.forumAPI.forum.topico;
+package com.forumAPI.forum.entity.topico;
 
 import java.time.LocalDateTime;
 
