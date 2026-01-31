@@ -1,10 +1,7 @@
 package com.forumAPI.forum.entity.usuario;
 
 import com.forumAPI.forum.entity.perfil.Perfil;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -27,7 +24,7 @@ public class Usuario {
     private String email;
     @NotBlank
     private String senha;
-    @NotBlank
+    @OneToMany
     private Perfil perfil;
 
 }

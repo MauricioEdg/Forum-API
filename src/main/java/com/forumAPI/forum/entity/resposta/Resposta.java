@@ -1,10 +1,7 @@
 package com.forumAPI.forum.entity.resposta;
 
 import com.forumAPI.forum.entity.topico.Topico;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +21,7 @@ public class Resposta {
     private Long id;
     @NotBlank
     private String mensagem;
-    @NotBlank
+    @OneToMany
     private Topico topico;
     private LocalDateTime data;
     @NotBlank

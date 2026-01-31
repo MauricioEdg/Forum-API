@@ -1,9 +1,11 @@
 package com.forumAPI.forum.entity.topico;
 
+import com.forumAPI.forum.entity.curso.Curso;
 import com.forumAPI.forum.entity.topico.StatusMensagemEnum;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -32,8 +34,8 @@ public class Topico {
     private StatusMensagemEnum status;
     @NotBlank
     private String autor;
-    @NotBlank
-    private String curso;
+    @OneToMany
+    private Curso curso;
 
 
 }
