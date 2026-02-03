@@ -1,19 +1,16 @@
 package com.forumAPI.forum.entity.perfil;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Table(name="perfil")
+@Entity(name="Perfil")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter@Setter
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
 public class Perfil {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

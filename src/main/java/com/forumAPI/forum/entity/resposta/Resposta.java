@@ -3,16 +3,15 @@ package com.forumAPI.forum.entity.resposta;
 import com.forumAPI.forum.entity.topico.Topico;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Table(name="resposta")
+@Entity(name="Resposta")
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Getter
 @Setter
 public class Resposta {
@@ -21,7 +20,7 @@ public class Resposta {
     private Long id;
     @NotBlank
     private String mensagem;
-    @OneToMany
+    @ManyToOne
     private Topico topico;
     private LocalDateTime data;
     @NotBlank

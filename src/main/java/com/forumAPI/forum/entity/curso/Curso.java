@@ -1,20 +1,17 @@
 package com.forumAPI.forum.entity.curso;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Table(name = "curso")
+@Entity(name="Curso")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Getter
 @Setter
+
 public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,4 +20,11 @@ public class Curso {
     private String nome;
     @NotNull
     private String categoria;
+
+    public Curso(CursosDTO c) {
+        this.nome = c.nome();
+        this.categoria = c.categoria();
+    }
+
+
 }

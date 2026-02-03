@@ -4,14 +4,13 @@ import com.forumAPI.forum.entity.perfil.Perfil;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Table(name = "usuario")
+@Entity(name = "Usuario")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Getter
 @Setter
 public class Usuario {
@@ -24,7 +23,7 @@ public class Usuario {
     private String email;
     @NotBlank
     private String senha;
-    @OneToMany
+    @ManyToOne
     private Perfil perfil;
 
 }
