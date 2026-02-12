@@ -3,23 +3,23 @@ package com.forumAPI.forum.controller;
 import com.forumAPI.forum.entity.topico.Topico;
 import com.forumAPI.forum.entity.topico.TopicoRepository;
 import com.forumAPI.forum.entity.topico.TopicosDTO;
+import com.forumAPI.forum.services.TopicoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("topico")
 public class TopicoController {
 
     @Autowired
-    private TopicoRepository repository;
+    private TopicoService service;
     @PostMapping
-    public void cadastrar(@RequestBody @Valid TopicosDTO topicos){
-        repository.save(new Topico(topicos));
-
+    @ResponseStatus(HttpStatus.CREATED)
+    public Topico cadastrar(@RequestBody @Valid TopicosDTO dto){
+        return service.criar(dto);
     }
-
 }
+
+

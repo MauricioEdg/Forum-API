@@ -1,6 +1,7 @@
 package com.forumAPI.forum.entity.resposta;
 
 import com.forumAPI.forum.entity.topico.Topico;
+import com.forumAPI.forum.entity.usuario.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -15,17 +16,19 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class Resposta {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String mensagem;
-    @ManyToOne
-    private Topico topico;
     private LocalDateTime data;
-    @NotBlank
-    private String autor;
-    @NotBlank
-    private String solucao;
+    @ManyToOne
+    @JoinColumn(name = "autor_id")
+    private Usuario autor;
+    @ManyToOne
+    @JoinColumn(name = "topico_id")
+    private Topico topico;
+    private Boolean solucao;
 
 }

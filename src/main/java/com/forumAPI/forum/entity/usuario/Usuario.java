@@ -2,8 +2,8 @@ package com.forumAPI.forum.entity.usuario;
 
 import com.forumAPI.forum.entity.perfil.Perfil;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Table(name = "usuario")
@@ -15,15 +15,16 @@ import lombok.*;
 @Setter
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String nome;
-    @NotNull
+    @Email
     private String email;
     @NotBlank
     private String senha;
     @ManyToOne
+    @JoinColumn(name = "perfil_id")
     private Perfil perfil;
 
 }

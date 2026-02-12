@@ -6,7 +6,6 @@ CREATE TABLE topico (
     status VARCHAR(50) NOT NULL,
     autor_id BIGINT NOT NULL,
     curso_id BIGINT NOT NULL,
-    resposta_id BIGINT,
     PRIMARY KEY (id),
     CONSTRAINT fk_topico_usuario
         FOREIGN KEY (autor_id) REFERENCES usuario(id),

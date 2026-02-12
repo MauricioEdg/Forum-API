@@ -9,18 +9,10 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public record TopicosDTO(
-        @NotBlank
         String titulo,
-        @NotBlank
         String mensagem,
-        @NotBlank
         LocalDateTime dataCriacao,
-        @NotNull
         StatusMensagemEnum status,
-        String autor,
-        @NotNull
-        @Valid
-        CursosDTO curso
-
-) {
-}
+        Long autorId,
+        Long cursoId
+) {}

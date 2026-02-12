@@ -1,45 +1,109 @@
 package com.forumAPI.forum.entity.topico;
 
 import com.forumAPI.forum.entity.curso.Curso;
+import com.forumAPI.forum.entity.curso.CursosDTO;
+import com.forumAPI.forum.entity.resposta.Resposta;
+import com.forumAPI.forum.entity.usuario.Usuario;
+import com.forumAPI.forum.entity.usuario.UsuarioDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name="topico")
 @Entity(name="Topico")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
 public class Topico {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String titulo;
     @NotBlank
     private String mensagem;
-    @NotNull
     private LocalDateTime data;
     @Enumerated(EnumType.STRING)
     private StatusMensagemEnum status;
-    @NotBlank
-    private String autor;
     @ManyToOne
+    @JoinColumn(name = "autor_id")
+    private Usuario autor;
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
     private Curso curso;
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
+    private List<Resposta> respostas = new ArrayList<>();
 
+    public Long getId() {
+        return id;
+    }
 
-    public Topico(TopicosDTO topicos) {
-        this.titulo = topicos.titulo();
-        this.mensagem = topicos.mensagem();
-        this.data = topicos.dataCriacao();
-        this.status = topicos.status();
-        this.autor = topicos.autor();
-        this.curso = new Curso(topicos.curso());
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
+
+    public StatusMensagemEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusMensagemEnum status) {
+        this.status = status;
+    }
+
+    public Usuario getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Usuario autor) {
+        this.autor = autor;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public List<Resposta> getRespostas() {
+        return respostas;
+    }
+
+    public void setRespostas(List<Resposta> respostas) {
+        this.respostas = respostas;
     }
 }

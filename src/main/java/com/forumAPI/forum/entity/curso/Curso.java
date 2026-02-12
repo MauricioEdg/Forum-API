@@ -1,7 +1,7 @@
 package com.forumAPI.forum.entity.curso;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Table(name = "curso")
@@ -10,21 +10,22 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Getter
-@Setter
+
 
 public class Curso {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    @NotBlank
     private String nome;
-    @NotNull
+    @NotBlank
     private String categoria;
 
-    public Curso(CursosDTO c) {
-        this.nome = c.nome();
-        this.categoria = c.categoria();
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 }
