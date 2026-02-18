@@ -5,19 +5,18 @@ import com.forumAPI.forum.entity.curso.CursoRepository;
 import com.forumAPI.forum.entity.curso.CursosDTO;
 import com.forumAPI.forum.services.CursoService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("curso")
 public class CursoController {
 
+    @Autowired
     private CursoService service;
 
-    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
     public Curso cadastrar(@RequestBody @Valid CursosDTO dto) {
         return service.criar(dto);
     }

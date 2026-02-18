@@ -1,15 +1,11 @@
 package com.forumAPI.forum.entity.topico;
 
 import com.forumAPI.forum.entity.curso.Curso;
-import com.forumAPI.forum.entity.curso.CursosDTO;
 import com.forumAPI.forum.entity.resposta.Resposta;
 import com.forumAPI.forum.entity.usuario.Usuario;
-import com.forumAPI.forum.entity.usuario.UsuarioDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -31,7 +27,7 @@ public class Topico {
     private String titulo;
     @NotBlank
     private String mensagem;
-    private LocalDateTime data;
+    private LocalDateTime data_criacao;
     @Enumerated(EnumType.STRING)
     private StatusMensagemEnum status;
     @ManyToOne
@@ -67,12 +63,12 @@ public class Topico {
         this.mensagem = mensagem;
     }
 
-    public LocalDateTime getData() {
-        return data;
+    public LocalDateTime getData_criacao() {
+        return data_criacao;
     }
 
-    public void setData(LocalDateTime data) {
-        this.data = data;
+    public void setData_criacao(LocalDateTime data_criacao) {
+        this.data_criacao = data_criacao;
     }
 
     public StatusMensagemEnum getStatus() {

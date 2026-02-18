@@ -30,7 +30,7 @@ public class TopicoService {
         Topico topico = new Topico();
         topico.setTitulo(dto.titulo());
         topico.setMensagem(dto.mensagem());
-        topico.setData(dto.dataCriacao());
+        topico.setData_criacao(dto.data_criacao());
         topico.setStatus(dto.status());
         topico.setAutor(autor);
         topico.setCurso(curso);

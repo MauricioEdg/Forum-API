@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Getter
-@Setter
+
 public class Resposta {
 
     @Id
@@ -22,7 +21,7 @@ public class Resposta {
     private Long id;
     @NotBlank
     private String mensagem;
-    private LocalDateTime data;
+    private LocalDateTime data_criacao;
     @ManyToOne
     @JoinColumn(name = "autor_id")
     private Usuario autor;
@@ -31,4 +30,51 @@ public class Resposta {
     private Topico topico;
     private Boolean solucao;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public LocalDateTime getData_criacao() {
+        return data_criacao;
+    }
+
+    public void setData_criacao(LocalDateTime data_criacao) {
+        this.data_criacao = data_criacao;
+    }
+
+    public Usuario getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Usuario autor) {
+        this.autor = autor;
+    }
+
+    public Topico getTopico() {
+        return topico;
+    }
+
+    public void setTopico(Topico topico) {
+        this.topico = topico;
+    }
+
+    public Boolean getSolucao() {
+        return solucao;
+    }
+
+    public void setSolucao(Boolean solucao) {
+        this.solucao = solucao;
+    }
 }

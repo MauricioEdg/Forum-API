@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public record TopicosDTO(
         String titulo,
         String mensagem,
-        LocalDateTime dataCriacao,
+        LocalDateTime data_criacao,
         StatusMensagemEnum status,
         Long autorId,
         Long cursoId

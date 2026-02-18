@@ -13,6 +13,6 @@ public record UsuarioDTO(
         String email,
         @NotBlank
         String senha,
-        PerfilDTO perfil
+        Long perfilId
 ) {
 }

@@ -28,4 +28,12 @@ public class Curso {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
 }
