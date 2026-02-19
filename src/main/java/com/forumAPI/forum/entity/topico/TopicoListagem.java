@@ -3,6 +3,7 @@ package com.forumAPI.forum.entity.topico;
 import java.time.LocalDateTime;
 
 public record TopicoListagem(
+        Long id,
         String titulo,
         String mensagem,
         LocalDateTime data_criação,
@@ -12,6 +13,7 @@ public record TopicoListagem(
 ) {
     public TopicoListagem(Topico topico){
         this(
+                topico.getId(), 
                 topico.getTitulo(),
                 topico.getMensagem(),
                 topico.getData_criacao(),
