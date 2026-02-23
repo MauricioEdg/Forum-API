@@ -39,6 +39,9 @@ public class Topico {
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
     private List<Resposta> respostas = new ArrayList<>();
 
+    public Topico(TopicosDTO dto) {
+    }
+
     public Long getId() {
         return id;
     }
