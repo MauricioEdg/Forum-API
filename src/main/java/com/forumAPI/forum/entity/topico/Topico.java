@@ -42,6 +42,9 @@ public class Topico {
     public Topico(TopicosDTO dto) {
     }
 
+    public Topico() {
+    }
+
     public Long getId() {
         return id;
     }

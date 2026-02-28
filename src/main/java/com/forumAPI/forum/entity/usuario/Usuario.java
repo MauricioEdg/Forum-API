@@ -65,4 +65,6 @@ public class Usuario {
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
+
+
 }

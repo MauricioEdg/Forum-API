@@ -1,4 +1,4 @@
-package com.forumAPI.forum.TratamentoErros;
+package com.forumAPI.forum.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;

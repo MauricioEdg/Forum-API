@@ -39,6 +39,7 @@ public class TopicoController {
 
     @GetMapping
     public ResponseEntity<Page<TopicoListagem>> listarTopico(@PageableDefault(size = 10, sort = {"titulo"}) Pageable pageable){
+
         var page = repository.findAll(pageable)
                 .map(TopicoListagem::new);
         return ResponseEntity.ok(page);
@@ -69,12 +70,6 @@ public class TopicoController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{id}")
-    @Transactional
-    public ResponseEntity detalhar(@PathVariable Long id){
-       var topico = repository.getReferenceById(id);
-        return ResponseEntity.ok(new TopicoListagem(topico));
-    }
 }
 
 
