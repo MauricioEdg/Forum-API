@@ -1,8 +1,6 @@
 package com.forumAPI.forum.security;
 
-import com.forumAPI.forum.entity.perfil.Perfil;
 import com.forumAPI.forum.entity.perfil.PerfilRepository;
-import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.logging.LogRecord;
 
 @Component
 public class SecurityFilter extends OncePerRequestFilter {

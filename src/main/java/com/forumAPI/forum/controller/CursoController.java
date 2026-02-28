@@ -1,12 +1,10 @@
 package com.forumAPI.forum.controller;
 
 import com.forumAPI.forum.entity.curso.Curso;
-import com.forumAPI.forum.entity.curso.CursoRepository;
 import com.forumAPI.forum.entity.curso.CursosDTO;
 import com.forumAPI.forum.services.CursoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

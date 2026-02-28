@@ -17,7 +17,6 @@ import java.util.List;
 @Table(name="topico")
 @Entity(name="Topico")
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Topico {
     @Id

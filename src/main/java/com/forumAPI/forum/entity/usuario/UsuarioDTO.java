@@ -1,7 +1,6 @@
 package com.forumAPI.forum.entity.usuario;
 
-import com.forumAPI.forum.entity.perfil.Perfil;
-import com.forumAPI.forum.entity.perfil.PerfilDTO;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
